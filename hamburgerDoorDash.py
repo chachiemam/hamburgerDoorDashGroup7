@@ -32,7 +32,7 @@ class Person():
 class Customer(Person):
     
     def __init__(self):
-        super().__init__
+        super().__init__()
         self.order = Order()
 
 #creates an empty queue
@@ -48,8 +48,13 @@ dictCustomerInfo = {}
 #creates a while loop that basically says that while there are customers in the queue, one will be popped out, assigned a name and an amount of burgers
 while queue:
     iCustomer = queue.popleft()
-    sCustomerName = Customer.customer_name
-    iBurgersOrdered = Customer.Order.burger_count
+    sCustomerName = iCustomer.customer_name
+    iBurgersOrdered = iCustomer.order.burger_count
 
     #this adds the customer info into the class with a key as the name and an integer as the burger count
     dictCustomerInfo [sCustomerName] = iBurgersOrdered
+
+
+#Prints out customer's name and order
+for customer_name, burger_count in dictCustomerInfo.items():
+    print(f"Customer Name: {customer_name} | Order: {burger_count} burgers")
